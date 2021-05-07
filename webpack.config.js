@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 module.exports = {
   //arquivo principal da plicação
   mode: isDevelopment ? "development" : "production",
-  entry: path.resolve(__dirname, "src", "index.jsx"),
+  entry: path.resolve(__dirname, "src", "index.tsx"),
   //saida do arquivo jsx convertido
   devtool: isDevelopment ? "eval-source-map" : "source-map",
   output: {
@@ -16,7 +16,7 @@ module.exports = {
   },
   //extensoes que o webpack irá converter
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devServer: {
     contentBase: path.resolve(__dirname, "public"),
@@ -33,7 +33,7 @@ module.exports = {
     //irei pegar todos os arquivos .jsx, menos os arquivos do node_modules e irei converter usando o babel-loader
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",

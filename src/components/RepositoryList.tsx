@@ -8,7 +8,11 @@ const repository = {
   description: "Forms in React",
   link: "https://github.com/unform/unform",
 };
-
+interface Repository {
+  name: string;
+  link: string;
+  description: string;
+}
 export function RepositoryList() {
   const [repositories, setRepositories] = useState([]);
 
